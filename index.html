@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="rankerApp">
+	<head>
+		<script src="./lib/angular.js"></script>
+		<script src="ranker.js"></script>
+		<script src="controllers.js"></script>
+	</head>
+	<body>
+		<h2>Choose the best stuff yo</h2>
+		<div ng-controller="RankerController as rankerController">
+			{{rankerController.currentSort}}
+			<div ng-show="!rankerController.isSorted">
+				<button ng-click="rankerController.decide(true)">{{rankerController.decisionPair[0]}}</button>
+				<button ng-click="rankerController.decide(false)">{{rankerController.decisionPair[1]}}</button>
+			</div>
+			<div ng-hide="!rankerController.isSorted">
+				All done!
+			</div>
+		</div>
+	</body>
+</html>
